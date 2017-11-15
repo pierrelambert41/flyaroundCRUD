@@ -20,36 +20,41 @@ class Reservation
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var int
      *
      * @ORM\Column(name="nbReservedSeats", type="smallint")
      */
     private $nbReservedSeats;
+
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="publicationDate", type="datetime")
      */
     private $publicationDate;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="passenger", type="string", length=32)
+
+    /**@ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\User", mappedBy="reservations")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $passenger;
+    private $passengers;
+
     /**
      * @var string
      *
      * @ORM\Column(name="flight", type="string", length=32)
      */
     private $flight;
+
     /**
      * @var bool
      *
      * @ORM\Column(name="wasDone", type="boolean")
      */
     private $wasDone;
+
+
     /**
      * Get id
      *
@@ -59,6 +64,7 @@ class Reservation
     {
         return $this->id;
     }
+
     /**
      * Set nbReservedSeats
      *
@@ -69,8 +75,10 @@ class Reservation
     public function setNbReservedSeats($nbReservedSeats)
     {
         $this->nbReservedSeats = $nbReservedSeats;
+
         return $this;
     }
+
     /**
      * Get nbReservedSeats
      *
@@ -80,6 +88,7 @@ class Reservation
     {
         return $this->nbReservedSeats;
     }
+
     /**
      * Set publicationDate
      *
@@ -90,8 +99,10 @@ class Reservation
     public function setPublicationDate($publicationDate)
     {
         $this->publicationDate = $publicationDate;
+
         return $this;
     }
+
     /**
      * Get publicationDate
      *
@@ -101,6 +112,7 @@ class Reservation
     {
         return $this->publicationDate;
     }
+
     /**
      * Set passenger
      *
@@ -111,8 +123,10 @@ class Reservation
     public function setPassenger($passenger)
     {
         $this->passenger = $passenger;
+
         return $this;
     }
+
     /**
      * Get passenger
      *
@@ -122,6 +136,7 @@ class Reservation
     {
         return $this->passenger;
     }
+
     /**
      * Set flight
      *
@@ -132,8 +147,10 @@ class Reservation
     public function setFlight($flight)
     {
         $this->flight = $flight;
+
         return $this;
     }
+
     /**
      * Get flight
      *
@@ -143,6 +160,7 @@ class Reservation
     {
         return $this->flight;
     }
+
     /**
      * Set wasDone
      *
@@ -153,8 +171,10 @@ class Reservation
     public function setWasDone($wasDone)
     {
         $this->wasDone = $wasDone;
+
         return $this;
     }
+
     /**
      * Get wasDone
      *

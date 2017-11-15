@@ -20,36 +20,43 @@ class PlaneModel
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
      *
      * @ORM\Column(name="model", type="string", length=128)
      */
     private $model;
+
     /**
      * @var string
      *
      * @ORM\Column(name="manufacturer", type="string", length=64, nullable=true)
      */
     private $manufacturer;
+
     /**
      * @var int
      *
      * @ORM\Column(name="cruiseSpeed", type="smallint", nullable=true)
      */
     private $cruiseSpeed;
+
     /**
      * @var int
      *
      * @ORM\Column(name="planeNbSeats", type="smallint")
      */
     private $planeNbSeats;
+
     /**
      * @var bool
      *
      * @ORM\Column(name="isAvailable", type="boolean")
      */
     private $isAvailable;
+
+
     /**
      * Get id
      *
@@ -59,6 +66,7 @@ class PlaneModel
     {
         return $this->id;
     }
+
     /**
      * Set model
      *
@@ -69,8 +77,10 @@ class PlaneModel
     public function setModel($model)
     {
         $this->model = $model;
+
         return $this;
     }
+
     /**
      * Get model
      *
@@ -80,6 +90,7 @@ class PlaneModel
     {
         return $this->model;
     }
+
     /**
      * Set manufacturer
      *
@@ -90,8 +101,10 @@ class PlaneModel
     public function setManufacturer($manufacturer)
     {
         $this->manufacturer = $manufacturer;
+
         return $this;
     }
+
     /**
      * Get manufacturer
      *
@@ -101,6 +114,7 @@ class PlaneModel
     {
         return $this->manufacturer;
     }
+
     /**
      * Set cruiseSpeed
      *
@@ -111,8 +125,10 @@ class PlaneModel
     public function setCruiseSpeed($cruiseSpeed)
     {
         $this->cruiseSpeed = $cruiseSpeed;
+
         return $this;
     }
+
     /**
      * Get cruiseSpeed
      *
@@ -122,6 +138,7 @@ class PlaneModel
     {
         return $this->cruiseSpeed;
     }
+
     /**
      * Set planeNbSeats
      *
@@ -132,17 +149,20 @@ class PlaneModel
     public function setPlaneNbSeats($planeNbSeats)
     {
         $this->planeNbSeats = $planeNbSeats;
+
         return $this;
     }
+
     /**
      * Get planeNbSeats
      *
-     * @return integer
+     * @return int
      */
     public function getPlaneNbSeats()
     {
         return $this->planeNbSeats;
     }
+
     /**
      * Set isAvailable
      *
@@ -153,12 +173,14 @@ class PlaneModel
     public function setIsAvailable($isAvailable)
     {
         $this->isAvailable = $isAvailable;
+
         return $this;
     }
+
     /**
      * Get isAvailable
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsAvailable()
     {
