@@ -275,11 +275,11 @@ class Terrain
     /**
      * Add departure
      *
-     * @param \CoavBundle\Entity\Flight $departure
+     * @param \WCS\CoavBundle\Entity\Flight $departure
      *
      * @return Terrain
      */
-    public function addDeparture(\CoavBundle\Entity\Flight $departure)
+    public function addDeparture(\WCS\CoavBundle\Entity\Flight $departure)
     {
         $this->departures[] = $departure;
         return $this;
@@ -287,9 +287,9 @@ class Terrain
     /**
      * Remove departure
      *
-     * @param \CoavBundle\Entity\Flight $departure
+     * @param \WCS\CoavBundle\Entity\Flight $departure
      */
-    public function removeDeparture(\CoavBundle\Entity\Flight $departure)
+    public function removeDeparture(\WCS\CoavBundle\Entity\Flight $departure)
     {
         $this->departures->removeElement($departure);
     }
@@ -305,11 +305,11 @@ class Terrain
     /**
      * Add arrival
      *
-     * @param \CoavBundle\Entity\Flight $arrival
+     * @param \WCS\CoavBundle\Entity\Flight $arrival
      *
      * @return Terrain
      */
-    public function addArrival(\CoavBundle\Entity\Flight $arrival)
+    public function addArrival(\WCS\CoavBundle\Entity\Flight $arrival)
     {
         $this->arrivals[] = $arrival;
         return $this;
@@ -317,9 +317,9 @@ class Terrain
     /**
      * Remove arrival
      *
-     * @param \CoavBundle\Entity\Flight $arrival
+     * @param \WCS\CoavBundle\Entity\Flight $arrival
      */
-    public function removeArrival(\CoavBundle\Entity\Flight $arrival)
+    public function removeArrival(\WCS\CoavBundle\Entity\Flight $arrival)
     {
         $this->arrivals->removeElement($arrival);
     }

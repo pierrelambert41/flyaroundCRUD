@@ -20,77 +20,72 @@ class Flight
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
+     * @var int
+     *
      * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Terrain", inversedBy="departures")
-     * @ORM\JoinColumn(nullable=false)
      */
     private $departure;
-
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="arrival", type="string", length=32)
+     * @ORM\ManyToOne(targetEntity="WCS\CoavBundle\Entity\Terrain", inversedBy="arrivals")
      */
     private $arrival;
-
     /**
      * @var int
      *
      * @ORM\Column(name="nbFreeSeats", type="smallint")
      */
     private $nbFreeSeats;
-
     /**
      * @var float
      *
      * @ORM\Column(name="seatPrice", type="float")
      */
     private $seatPrice;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="takeOffTime", type="datetime")
      */
     private $takeOffTime;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="publicationDate", type="datetime")
      */
     private $publicationDate;
-
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="number", type="text")
+     */
+    private $number;
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
-
     /**
      * @var string
      *
      * @ORM\Column(name="pilot", type="string", length=32)
      */
     private $pilot;
-
     /**
      * @var string
      *
      * @ORM\Column(name="plane", type="string", length=64)
      */
     private $plane;
-
     /**
      * @var bool
      *
      * @ORM\Column(name="wasDone", type="boolean")
      */
     private $wasDone;
-
-
     /**
      * Get id
      *
@@ -100,7 +95,6 @@ class Flight
     {
         return $this->id;
     }
-
     /**
      * Set departure
      *
@@ -111,10 +105,8 @@ class Flight
     public function setDeparture($departure)
     {
         $this->departure = $departure;
-
         return $this;
     }
-
     /**
      * Get departure
      *
@@ -124,7 +116,6 @@ class Flight
     {
         return $this->departure;
     }
-
     /**
      * Set arrival
      *
@@ -135,10 +126,8 @@ class Flight
     public function setArrival($arrival)
     {
         $this->arrival = $arrival;
-
         return $this;
     }
-
     /**
      * Get arrival
      *
@@ -148,7 +137,6 @@ class Flight
     {
         return $this->arrival;
     }
-
     /**
      * Set nbFreeSeats
      *
@@ -159,10 +147,8 @@ class Flight
     public function setNbFreeSeats($nbFreeSeats)
     {
         $this->nbFreeSeats = $nbFreeSeats;
-
         return $this;
     }
-
     /**
      * Get nbFreeSeats
      *
@@ -172,7 +158,6 @@ class Flight
     {
         return $this->nbFreeSeats;
     }
-
     /**
      * Set seatPrice
      *
@@ -183,10 +168,8 @@ class Flight
     public function setSeatPrice($seatPrice)
     {
         $this->seatPrice = $seatPrice;
-
         return $this;
     }
-
     /**
      * Get seatPrice
      *
@@ -196,7 +179,6 @@ class Flight
     {
         return $this->seatPrice;
     }
-
     /**
      * Set takeOffTime
      *
@@ -207,10 +189,8 @@ class Flight
     public function setTakeOffTime($takeOffTime)
     {
         $this->takeOffTime = $takeOffTime;
-
         return $this;
     }
-
     /**
      * Get takeOffTime
      *
@@ -220,7 +200,6 @@ class Flight
     {
         return $this->takeOffTime;
     }
-
     /**
      * Set publicationDate
      *
@@ -231,10 +210,8 @@ class Flight
     public function setPublicationDate($publicationDate)
     {
         $this->publicationDate = $publicationDate;
-
         return $this;
     }
-
     /**
      * Get publicationDate
      *
@@ -244,7 +221,6 @@ class Flight
     {
         return $this->publicationDate;
     }
-
     /**
      * Set description
      *
@@ -255,10 +231,8 @@ class Flight
     public function setDescription($description)
     {
         $this->description = $description;
-
         return $this;
     }
-
     /**
      * Get description
      *
@@ -268,7 +242,6 @@ class Flight
     {
         return $this->description;
     }
-
     /**
      * Set pilot
      *
@@ -279,10 +252,8 @@ class Flight
     public function setPilot($pilot)
     {
         $this->pilot = $pilot;
-
         return $this;
     }
-
     /**
      * Get pilot
      *
@@ -292,7 +263,6 @@ class Flight
     {
         return $this->pilot;
     }
-
     /**
      * Set plane
      *
@@ -303,10 +273,8 @@ class Flight
     public function setPlane($plane)
     {
         $this->plane = $plane;
-
         return $this;
     }
-
     /**
      * Get plane
      *
@@ -316,7 +284,6 @@ class Flight
     {
         return $this->plane;
     }
-
     /**
      * Set wasDone
      *
@@ -327,10 +294,8 @@ class Flight
     public function setWasDone($wasDone)
     {
         $this->wasDone = $wasDone;
-
         return $this;
     }
-
     /**
      * Get wasDone
      *
@@ -339,5 +304,26 @@ class Flight
     public function getWasDone()
     {
         return $this->wasDone;
+    }
+    /**
+     * Set number
+     *
+     * @param string $number
+     *
+     * @return Flight
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+        return $this;
+    }
+    /**
+     * Get number
+     *
+     * @return string
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }
