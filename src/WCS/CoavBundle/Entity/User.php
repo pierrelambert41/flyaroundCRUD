@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User
 {
+    public function __toString()
+    {
+        return $this->firstName ." - ". $this->lastName;
+    }
     /**
      * @var int
      *
