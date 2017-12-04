@@ -2,16 +2,24 @@
 
 namespace WCS\CoavBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
  *
- * @ORM\Table(name="user")
+ * @ORM\Table(name="`user`")
  * @ORM\Entity(repositoryClass="WCS\CoavBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
+    function __construct()
+    {
+        parent::__construct();
+        $this->reservations = new ArrayCollection();
+    }
+
     public function __toString()
     {
         return $this->firstName ." - ". $this->lastName;
@@ -23,19 +31,13 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**@ORM\ManyToMany(targetEntity="WCS\CoavBundle\Entity\Reservation", inversedBy="passengers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $reservations;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="userName", type="string", length=32)
-     */
-    private $userName;
 
     /**
      * @var string
@@ -51,45 +53,34 @@ class User
      */
     private $lastName;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=64)
-     */
-    private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="phoneNumber", type="string", length=32)
+     * @ORM\Column(name="phoneNumber", type="string", length=32, nullable=true)
      */
     private $phoneNumber;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date")
+     * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
     private $birthDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="creationDate", type="datetime")
+     * @ORM\Column(name="creationDate", type="datetime", nullable=true)
      */
     private $creationDate;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=16)
-     */
-    private $role;
+
 
     /**
      * @var int
      *
-     * @ORM\Column(name="note", type="smallint")
+     * @ORM\Column(name="note", type="smallint", nullable=true)
      */
     private $note;
 
@@ -103,14 +94,14 @@ class User
     /**
      * @var bool
      *
-     * @ORM\Column(name="isACertifiedPilot", type="boolean")
+     * @ORM\Column(name="isACertifiedPilot", type="boolean", nullable=true)
      */
     private $isACertifiedPilot;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="isActive", type="boolean")
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
      */
     private $isActive;
 
@@ -125,29 +116,6 @@ class User
         return $this->id;
     }
 
-    /**
-     * Set userName
-     *
-     * @param string $userName
-     *
-     * @return User
-     */
-    public function setUserName($userName)
-    {
-        $this->userName = $userName;
-
-        return $this;
-    }
-
-    /**
-     * Get userName
-     *
-     * @return string
-     */
-    public function getUserName()
-    {
-        return $this->userName;
-    }
 
     /**
      * Set firstName
@@ -293,29 +261,6 @@ class User
         return $this->creationDate;
     }
 
-    /**
-     * Set role
-     *
-     * @param string $role
-     *
-     * @return User
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
 
     /**
      * Set note
